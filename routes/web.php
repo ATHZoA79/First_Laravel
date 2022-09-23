@@ -22,4 +22,6 @@ Route::get('/', function () {
 //     return view('index');
 // });
 // can also write 
-Route::get('/test', [NewsController::class, 'index']); 
+Route::get('/index', [NewsController::class, 'index']); 
+
+Route::get('/test', [NewsController::class, 'test']); 
