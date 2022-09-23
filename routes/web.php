@@ -24,4 +24,4 @@ Route::get('/', function () {
 // can also write 
 Route::get('/index', [NewsController::class, 'index']); 
 
-Route::get('/test', [NewsController::class, 'test']); 
+Route::get('/test', [NewsController::class, 'getData']); 

@@ -43,3 +43,12 @@ nav > .nav-btn:hover {
   padding: 12px 10% 0;
   display: flex;
 }
+.card > .card-body > img {
+  margin: 0 0 8px;
+  max-height: 300px;
+  object-fit: contain;
+}
+.card > .card-body > h3 {
+  padding: 12px 0 8px;
+  border-top: 1px solid #666;
+}

@@ -5,14 +5,17 @@
 @endsection
 
 @section('card')
+@foreach ($data as $dt)
 <div class="col-3">
   <div class="card">
     <div class="card-body">
-      <img src="" class="card-img-top" alt="...">
+      <img src=" {{ $dt->img }} " class="card-img-top" alt="...">
+      <h3> {{ $dt->title }} </h3>
       <p class="card-text">
-        This is some text within a card body.
+        {{ $dt->content }}
       </p>
     </div>
   </div>
 </div>
+@endforeach
 @endsection

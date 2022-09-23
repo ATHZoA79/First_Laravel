@@ -10,10 +10,11 @@ class NewsController extends Controller
 {
     //
     public function index() {
-        return view('web.index');
+        $data = DB::table('news')->take(1)->get();
+        return view('web.index', ['data' => $data]);
     }
 
-    public function test() {
+    public function getData() {
         $data = DB::table('news')->get();
         dd($data);
     }
