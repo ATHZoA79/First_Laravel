@@ -10,7 +10,8 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,regular,500,700,900" rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href=" {{ asset('css/template.css') }} ">
+  @yield('stylesheet')
+  
 </head>
 
 <body>
@@ -27,36 +28,7 @@
   </nav>
 
   <div class="card-container justify-content-center">
-    <div class="col-3">
-      <div class="card">
-        <div class="card-body">
-          <img src="" class="card-img-top" alt="...">
-          <p class="card-text">
-            This is some text within a card body.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="card">
-        <div class="card-body">
-          <img src="..." class="card-img-top" alt="...">
-          <p class="card-text">
-            This is some text within a card body.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="card">
-        <div class="card-body">
-          <img src="..." class="card-img-top" alt="...">
-          <p class="card-text">
-            This is some text within a card body.
-          </p>
-        </div>
-      </div>
-    </div>
+    @yield('card')
   </div>
 
 
