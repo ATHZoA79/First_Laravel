@@ -25,3 +25,8 @@ Route::get('/', function () {
 Route::get('/index', [NewsController::class, 'index']); 
 
 Route::get('/test', [NewsController::class, 'getData']); 
+
+Route::get('/comment', [NewsController::class, 'comment']); 
+Route::get('/comment/save', [NewsController::class, 'save_comment']); 
+Route::get('/comment/edit', [NewsController::class, 'edit_comment']); 
+Route::get('/comment/delete', [NewsController::class, 'delete_comment']); 

@@ -27,9 +27,11 @@
     <a class="nav-btn" href="#">Link</a>
   </nav>
 
-  <div class="card-container justify-content-center">
+  <main>
     @yield('card')
-  </div>
+    @yield('comment-board')
+  </main>
+  
 
 
 </body>

@@ -18,4 +18,38 @@ class NewsController extends Controller
         $data = DB::table('news')->get();
         dd($data);
     }
+    
+    
+    public function comment() {
+        return view('web.comment');
+    }
+
+    public function save_comment(Request $request) {
+        dd(123, $request->all());
+        DB::table('comment')->insert([
+            'title' => $request->title,
+            'name' => $request->user,
+            'content' => $request->text,
+            'email' => '',
+        ]);
+
+        return redirect('/comment');
+    }
+    public function edit_comment(Request $request) {
+        dd(123, $request->all());
+        DB::table('comment')->insert([
+            'title' => $request->title,
+            'name' => $request->user,
+            'content' => $request->text,
+            'email' => '',
+        ]);
+
+        return redirect('/comment');
+    }
+    public function delete_comment( $target ) {
+        dd($target);
+        DB::table('comment')->where('id', $target)->delete();
+
+        return redirect('/comment');
+    }
 }
