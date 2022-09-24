@@ -29,6 +29,8 @@
 
   <main>
     @yield('card')
+    
+    @yield('comment-showcase')
     @yield('comment-board')
   </main>
   

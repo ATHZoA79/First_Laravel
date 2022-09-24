@@ -38,6 +38,16 @@ nav > .nav-btn:hover {
   max-height: 50px;
 }
 
+main { 
+  display: flex;
+  justify-content: center;
+}
+main .comment-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .card-container {
   width: 100%;
   padding: 12px 10% 0;

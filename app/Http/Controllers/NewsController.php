@@ -35,16 +35,10 @@ class NewsController extends Controller
 
         return redirect('/comment');
     }
-    public function edit_comment(Request $request) {
-        dd(123, $request->all());
-        DB::table('comment')->insert([
-            'title' => $request->title,
-            'name' => $request->user,
-            'content' => $request->text,
-            'email' => '',
-        ]);
-
-        return redirect('/comment');
+    public function edit_comment( $id ) {
+        $comment = DB::table('comment')->where('id', $id)->get();
+        return view('comment.edit', compact($comment));
+        // 跳轉到edit頁面
     }
     public function delete_comment( $target ) {
         dd($target);
