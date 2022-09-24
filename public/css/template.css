@@ -10,6 +10,12 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
+  background-color: #d4d4d4;
+}
+
+/* preprocess style */
+a + a {
+  margin-left: 8px;
 }
 
 nav {
@@ -38,15 +44,83 @@ nav > .nav-btn:hover {
   max-height: 50px;
 }
 
+/* main section */
 main { 
+  width: 100%;
+  padding: 40px 0 120px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+main .comment-showcase-container {
+  width: 50%;
+  min-width: 600px;
+}
+main .comment-showcase-container .showcase-wrap {
+  margin: 10px 0;
+  padding: 12px;
+  border: 2px solid #666;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+main .comment-showcase-container .showcase-wrap .cmt-text {
+  display: flex;
+  align-items: flex-end;
+}
+main .comment-showcase-container .showcase-wrap .content {
+  padding: 8px 16px;
+  border-top: 1px solid #811;
+}
+main .comment-showcase-container .showcase-wrap .mods {
+  display: flex;
+  justify-content: flex-end;
+}
+main .comment-showcase-container .showcase-wrap .mods :is(.edit, .delete) {
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: .2s ease-out;
+}
+main .comment-showcase-container .showcase-wrap .mods :is(.edit, .delete):hover {
+  border: 1px solid #aaa;
+}
+
+main .comment-box {
+  width: 50%;
+  min-width: 600px;
+  border: 1px solid #666;
+  border-top: 6px double #811;
+  border-radius: 0 0 20px 20px;
 }
 main .comment-box form {
+  width: 100%;
+  padding: 16px 28px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+main .comment-box form h2 {
+  margin: 0 0 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #811;
+}
+main .comment-box form input {
+  width: 100%;
+}
+main .comment-box form button {
+  margin: 12px 0 0;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #555;
+  color: #fff;
+  transition: .2s ease-out;
+}
+main .comment-box form button:hover {
+  background-color: #333;
+}
+/* end main section */
 
 .card-container {
   width: 100%;
@@ -61,4 +135,22 @@ main .comment-box form {
 .card > .card-body > h3 {
   padding: 12px 0 8px;
   border-top: 1px solid #666;
+}
+
+/* footer */
+footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: #16181b;
+  color: #ccc;
+}
+footer span {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #E6281A;
 }

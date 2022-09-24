@@ -28,5 +28,6 @@ Route::get('/test', [NewsController::class, 'getData']);
 
 Route::get('/comment', [NewsController::class, 'comment']); 
 Route::get('/comment/save', [NewsController::class, 'save_comment']); 
-Route::get('/comment/edit', [NewsController::class, 'edit_comment']); 
-Route::get('/comment/delete', [NewsController::class, 'delete_comment']); 
+Route::get('/comment/edit/{id}', [NewsController::class, 'edit_comment']); 
+Route::get('/comment/update/{id}', [NewsController::class, 'update_comment']); 
+Route::get('/comment/delete/{target}', [NewsController::class, 'delete_comment']); 

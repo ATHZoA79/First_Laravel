@@ -8,11 +8,15 @@
 <div class="comment-showcase-container">
   @foreach ($comments as $cmt)
   <div class="showcase-wrap">
-    <div class="cmt-text row">
-      <div class="cmt-title col-3"> {{ $cmt->title }} </div>
-      <div class="cmt-title col-3 text-sm"> {{ $cmt->name }} </div>
+    <div class="cmt-text">
+      <div class="cmt-title col-3 fs-3"> {{ $cmt->title }} </div>
+      <div class="cmt-name col-3 fs-5"> {{ $cmt->name }} </div>
     </div>
     <p class="content"> {{ $cmt->content }} </p>
+    <div class="mods">
+      <a href="/comment/edit/{{ $cmt->id }}" class="edit fs-8">EDIT</a>
+      <a href="/comment/delete/{{ $cmt->id }}" class="delete fs-8">DEL</a>
+    </div>
   </div>
   @endforeach
 </div>
