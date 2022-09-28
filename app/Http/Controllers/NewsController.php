@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;  // Required 
+use Illuminate\Support\Facades\DB;  // Required if using DB syntax
 use Illuminate\Http\Request;
 
 class NewsController extends Controller

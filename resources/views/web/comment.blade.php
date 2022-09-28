@@ -1,4 +1,4 @@
-@extends('web.template')
+@extends('template.template')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/template.css') }} ">
@@ -24,7 +24,8 @@
 
 @section('comment-board')
 <div class="comment-box">
-  <form class="" action="/comment/save" method="GET">
+  <form class="" action="/comment/save" method="POST">
+    @csrf
     <label for="">Title</label>
     <input type="text" name="title">
     <label for="">User</label>
@@ -32,6 +33,7 @@
     <label for="">Comment</label>
     <input type="text" name="text">
     <button type="submit">Submit</button>
+    {{-- {{ csrf_field() }} --}}
   </form>
 </div>
 @endsection

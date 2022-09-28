@@ -34,8 +34,11 @@
 
     @yield('comment-showcase')
     @yield('comment-board')
+
+    @yield('table')
   </main>
 
+  @yield('scripts')
 
   <footer class="">
     <span>Copyright by ZoA &copy; 2022</span>

@@ -1,4 +1,4 @@
-@extends('web.template')
+@extends('template.template')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/template.css') }} ">
