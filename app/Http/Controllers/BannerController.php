@@ -22,7 +22,7 @@ class BannerController extends Controller
     }
     public function store(Request $request) {
         // dd($request->all());
-        $path = Storage::disk('local')->put('banner', $request->banner_img);
+        $path = Storage::disk('public')->put('/banner', $request->banner_img);
         $path = '/storage/public/'.$path;
         Banner::create([
             'img_path' => $path,
@@ -39,9 +39,9 @@ class BannerController extends Controller
     }
     public function update(Request $request, $id) {
         // 幾乎跟create相同
-        $path = Storage::disk('local')->put('banner', $request->banner_img);
+        $path = Storage::disk('public')->put('/banner', $request->banner_img);
         $path = '/storage/public/'.$path;
-        
+
         // 方法一
         // Banner::find($id)->update([
         //     'img_path' => $path,
@@ -50,8 +50,9 @@ class BannerController extends Controller
         // ]);
 
         $banner = Banner::find($id);
-        Storage::disk('local')->delete('banner', $banner->img_path); // 先刪除舊檔案
-        // $banner->img_path = $path;
+        $target = str_replace('/storage', '', $banner->img_path);
+        Storage::disk('local')->delete($target); // 先刪除舊檔案
+        $banner->img_path = $path;
         $banner->img_opacity = $request->banner_opacity;
         $banner->weight = $request->img_weight;
         $banner->save();    // **記得儲存**
@@ -59,6 +60,12 @@ class BannerController extends Controller
         return redirect('/banner');
     }
     public function destroy($id) {
+        // dd($id);
+        $banner = Banner::find($id);
+        $target = str_replace('/storage', '', $banner->img_path);
+        Storage::disk('local')->delete($target);
+        $banner->delete();
+
         return redirect('/banner');
     } 
 

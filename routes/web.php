@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\NewsController;
+
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProductController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +48,12 @@ Route::prefix('/banner')->group(function () {  // 用群組管理相關頁面
 });
 
 Route::get('/datatable', [BannerController::class, 'table']); 
+
+Route::prefix('/product')->group(function () {
+	Route::get('/', [ProductController::class, 'index']);
+	Route::get('/create', [ProductController::class, 'create']);
+	Route::post('/store', [ProductController::class, 'store']);
+	Route::get('/edit/{id}', [ProductController::class, 'edit']);
+	Route::post('/update/{id}', [ProductController::class, 'update']);
+	Route::post('/destroy/{id}', [ProductController::class, 'destroy']);
+});
