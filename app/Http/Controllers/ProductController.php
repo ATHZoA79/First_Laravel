@@ -37,7 +37,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        Product::create([
+            'img_path' => $request->product_img,
+            'product_name' => $request->product_name,
+            'product_price' => $request->product_price,
+            'product_detail' => $request->product_detail,
+            'product_qty' => $request->product_qty,
+        ]);
+
+        return redirect('/product');
     }
 
 

@@ -11,6 +11,7 @@
     <h3 class="col-10">Banner </h3>
     <a href="/banner/create" class="btn btn-primary col-2">新增Banner </a>
   </div>
+  @foreach ($products as $product)
   <table id="product_table" class="display">
     <thead>
       <tr>
@@ -29,7 +30,7 @@
             <img src="" alt="">
           </div>
         </td>
-        <td>{{$banner->weight}}</td>
+        <td>{{}}</td>
         <td>
           <button class="btn btn-primary" onclick="location.href='/banner/edit/'">編輯</button>
           <button class="btn btn-danger" onclick="document.querySelector('#delete_form').submit();">刪除</button>
@@ -40,6 +41,7 @@
         </td>
       </tr>
     </tbody>
+    @endforeach
   </table>
 </div>
 @endsection

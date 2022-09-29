@@ -30,8 +30,8 @@
       <input type="text" name="product_detail" id="product_detail">
     </div>
     <div class="label-input">
-      <label for="product_detail" class="col-3">商品數量</label>
-      <input type="number" name="product_detail" id="product_detail">
+      <label for="product_qty" class="col-3">商品數量</label>
+      <input type="number" name="product_qty" id="product_qty">
     </div>
 
     <div class="button-box col-6">
