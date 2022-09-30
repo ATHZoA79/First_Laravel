@@ -18,15 +18,15 @@
 
 <body>
 
-  <nav class="nav nav-pills flex-column flex-sm-row bg-dark">
+  <nav class="nav nav-pills bg-dark">
     <div class="nav-img col-8">
       <a href="#">
         <img src=" {{ asset('img/logo-laravel-icon-512.png') }} " alt="">
       </a>
     </div>
-    <a class="nav-btn" aria-current="page" href="#">Active</a>
-    <a class="nav-btn" href="#">Longer nav link</a>
-    <a class="nav-btn" href="#">Link</a>
+    <a class="btn btn-secondary d-flex align-items-center" aria-current="page" href="#">Active</a>
+    <a class="btn btn-secondary d-flex align-items-center" href="#">Longer nav link</a>
+    <a class="btn btn-secondary d-flex align-items-center" href="#">Link</a>
   </nav>
 
   <main>
