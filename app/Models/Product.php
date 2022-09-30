@@ -23,6 +23,8 @@ class Product extends Model
      */
     protected $keyType = 'integer';
 
+    
+
     /**
      * @var array
      */
