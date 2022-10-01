@@ -29,4 +29,8 @@ class Product extends Model
      * @var array
      */
     protected $fillable = ['created_at', 'updated_at', 'img_path', 'product_name', 'product_detail', 'product_qty', 'product_price'];
+
+    public function imgs() {
+        return $this->hasMany(Product_img::class, 'product_id', 'id');
+    }
 }

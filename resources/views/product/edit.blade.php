@@ -20,6 +20,42 @@
       <label for="product_img" class="col-3">修改商品圖片</label>
       <input type="file" name="product_img" id="product_img">
     </div>
+    <label for="" class="col-3">當前次要圖片</label>
+    <div class="label-input">
+      @foreach ($product->imgs as $item)
+      <div 
+        class="d-flex flex-column me-2"
+        style="max-width:150px;"
+      >
+        {{-- {{$product->imgs}} 使用Product關聯資料 --}}
+          <img 
+            src="{{ $item->img_path }}" 
+            alt="" class="second-img" 
+            style="max-width:150px; object-fit:contain;"
+          >
+          <button 
+            class="btn btn-danger w-100"
+            onclick="document.querySelector('#delete_img{{$item->id}}').submit();"
+            >刪除此圖片</button>
+        {{-- @foreach ($second_img as $item) 使用Product_img資料
+          <img 
+            src="{{ $item->img_path }}" 
+            alt="" class="second-img" 
+            style="max-width:120px; object-fit:contain;"
+          >
+        @endforeach --}}
+      </div>
+      @endforeach
+      <form id="delete_img{{$item->id}}" action="product/delete_img/{{$item->id}}" method="POST" hidden>
+        @method('DELETE')
+        @csrf
+        {{-- form to delete sub image --}}
+      </form>
+    </div>
+    <div class="label-input">
+      <label for="second_img" class="col-3">修改次要商品圖片</label>
+      <input type="file" name="second_img[]" id="second_img" multiple accept="image/*">
+    </div>
     <div class="label-input">
       <label for="product_name" class="col-3">商品名稱</label>
       <input type="text" name="product_name" id="product_name" value="{{$product->product_name}}">

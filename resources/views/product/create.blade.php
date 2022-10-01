@@ -18,6 +18,10 @@
       <input type="file" name="product_img" id="product_img">
     </div>
     <div class="label-input">
+      <label for="second_img" class="col-3">上傳次要商品圖片</label>
+      <input type="file" name="second_img[]" id="second_img" multiple accept="image/*">
+    </div>
+    <div class="label-input">
       <label for="product_name" class="col-3">商品名稱</label>
       <input type="text" name="product_name" id="product_name">
     </div>
