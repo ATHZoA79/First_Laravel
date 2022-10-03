@@ -1,0 +1,6 @@
+main .product_box .card {
+}
+main .product_box .card img {
+  max-height: 150px;
+  object-fit: contain;
+}

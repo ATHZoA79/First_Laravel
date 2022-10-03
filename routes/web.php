@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductController;
@@ -26,7 +27,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/index', [NewsController::class, 'index']); 
+Route::get('/index', [Controller::class, 'index']); 
 
 Route::prefix('/comment')->group(function () {
 	Route::get('/', [NewsController::class, 'comment']);
@@ -53,6 +54,6 @@ Route::prefix('/product')->group(function () {
 	Route::post('/update/{id}', [ProductController::class, 'update']);
 	Route::delete('/destroy/{id}', [ProductController::class, 'destroy']);
 	Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']);
-	Route::get('/info', [ProductController::class, 'product_info']);
+	Route::get('/info/{id}', [ProductController::class, 'product_info']);
 });
 // Route::prefix('/product')->middleware('default')->group

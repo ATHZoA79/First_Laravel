@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\FilesController;
 use App\Models\Product;
 use App\Models\Product_img;
+use Illuminate\Validation\Rules\Exists;
 
 class ProductController extends Controller
 {
@@ -56,12 +57,14 @@ class ProductController extends Controller
             'product_qty' => $request->product_qty,
         ]);
         
-        foreach ($request->second_img as $index => $element) {
-            $second_path = FilesController::imgUpload($element, 'product');
-            Product_img::create([
-                'img_path' => $second_path,
-                'product_id' => $product->id,
-            ]);
+        if ($request->second_img != "") {
+            foreach ($request->second_img as $index => $element) {
+                $second_path = FilesController::imgUpload($element, 'product');
+                Product_img::create([
+                    'img_path' => $second_path,
+                    'product_id' => $product->id,
+                ]);
+            }
         }
 
         return redirect('/product');
@@ -149,7 +152,7 @@ class ProductController extends Controller
     }
 
     public function product_info($id) {
-        $product_info = Product::find($id)->get();
+        $product_info = Product::find($id);
 
         return view('product.product_info', compact('product_info'));
     }

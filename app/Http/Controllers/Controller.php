@@ -12,8 +12,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index() {
-        $product = Product::orderBy('id','desc')->get();
+        $products = Product::orderBy('id','desc')->get(); 
 
-        return view('index', compact('product')); 
+        return view('index', compact('products')); 
     }
 }

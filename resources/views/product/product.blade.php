@@ -40,7 +40,7 @@
           <button class="btn btn-danger" onclick="document.querySelector('#delete_form{{$product->id}}').submit();">刪除</button>
           <form id="delete_form{{$product->id}}" action="/product/destroy/{{$product->id}}" method="POST" hidden>
             @csrf
-            {{-- @method('DELETE') --}}
+            @method('DELETE')
           </form>
         </td>
       </tr>
