@@ -53,5 +53,6 @@ Route::prefix('/product')->group(function () {
 	Route::post('/update/{id}', [ProductController::class, 'update']);
 	Route::delete('/destroy/{id}', [ProductController::class, 'destroy']);
 	Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']);
+	Route::get('/info', [ProductController::class, 'product_info']);
 });
 // Route::prefix('/product')->middleware('default')->group

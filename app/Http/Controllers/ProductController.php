@@ -147,4 +147,10 @@ class ProductController extends Controller
 
         return redirect('product/edit/'.$origin_id);
     }
+
+    public function product_info($id) {
+        $product_info = Product::find($id)->get();
+
+        return view('product.product_info', compact('product_info'));
+    }
 }
