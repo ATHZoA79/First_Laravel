@@ -12,6 +12,7 @@
 
   <!-- Styles -->
   @yield('stylesheet')
+  <link rel="stylesheet" href="{{ asset('css/template.css') }}">
 
 </head>
 
@@ -23,20 +24,32 @@
         <img src=" {{ asset('img/logo-laravel-icon-512.png') }} " alt="">
       </a>
     </div>
-    <div class="d-flex col-10 justify-content-end">
-      <a class="btn btn-dark d-flex align-items-center " aria-current="page" href="/banner">橫幅管理</a>
-      <a class="btn btn-dark d-flex align-items-center " href="/product">商品管理</a>
-      <a class="btn btn-dark d-flex align-items-center " href="#">
+    <div id="nav-list" class="d-flex col-10 justify-content-end">
+      <a id="banner" class="btn btn-dark d-flex align-items-center " aria-current="page" href="/banner">橫幅管理</a>
+      <a id="product" class="btn btn-dark d-flex align-items-center " href="/product">商品管理</a>
+      <a id="cart" class="btn btn-dark d-flex align-items-center " href="#">
         <i class="fa-solid fa-cart-shopping"></i>
         購物車
       </a>
-      <a class="btn btn-dark d-flex align-items-center " href="#">
+      <button id="user" class="btn btn-dark d-flex align-items-center " >
         <i class="fa-solid fa-circle-user"></i>
-      </a>
+        <div id="drop-down">
+          @auth
+          <a href="/login">
+            登出
+          </a>
+          @else
+          <a href="/login">
+            登入
+          </a>
+          @endauth
+        </div>
+      </button>
     </div>
   </nav>
 
   <main>
+    {{-- {{Auth::user()->id}} --}}
     @yield('card')
 
     @yield('comment-showcase')
