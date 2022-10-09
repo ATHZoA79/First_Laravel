@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('template.template')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/datatable.css') }} ">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 @endsection
 
-@section('main')
+@section('table')
 <div class="list-detail">
   <div class="banner-title">
     <h3 class="col-10">Banner </h3>

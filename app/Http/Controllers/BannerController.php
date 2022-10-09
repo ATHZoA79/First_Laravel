@@ -12,8 +12,10 @@ class BannerController extends Controller
     //
     public function index() {
         $banners = Banner::get();
+        $header = '';
+        $slot = '';
 
-        return view('banner.index',compact('banners'));
+        return view('banner.index',compact('banners', 'header', 'slot'));
     }
 
     // banner functions

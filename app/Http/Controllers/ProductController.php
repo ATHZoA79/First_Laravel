@@ -24,8 +24,10 @@ class ProductController extends Controller
 
         $main_product = Product::inRandomOrder()->first();
         $second_img = Product_img::get();
+        $header = '';
+        $slot = '';
 
-        return view('product.product', compact('products', 'product_box_1', 'product_box_2', 'second_img'));
+        return view('product.product', compact('products', 'product_box_1', 'product_box_2', 'second_img', 'header', 'slot'));
     }
 
     /**

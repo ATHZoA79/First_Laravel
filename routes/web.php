@@ -1,11 +1,8 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,18 +26,15 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/index', [Controller::class, 'index']); 
-
-Route::prefix('/comment')->group(function () {
-	Route::get('/', [NewsController::class, 'comment']);
-	Route::post('/save', [NewsController::class, 'save_comment']);
+Route::prefix('/comment')->group(function() {
+	Route::get('/', [NewsController::class, 'index'])->name('comments');
+	Route::get('/board', [NewsController::class, 'comment'])->name('comment_board');
 	Route::get('/edit/{id}', [NewsController::class, 'edit_comment']);
-	Route::post('/update/{id}', [NewsController::class, 'update_comment']);
-	Route::delete('/delete/{target}', [NewsController::class, 'delete_comment']);
+	Route::get('/delete/{id}', [NewsController::class, 'delete_comment']);
 });
 
 Route::prefix('/banner')->group(function () {
-	Route::get('/', [BannerController::class, 'index']);
+	Route::get('/', [BannerController::class, 'index'])->name('banner');
 	Route::get('/create', [BannerController::class, 'create']);
 	Route::post('/store', [BannerController::class, 'store']);
 	Route::get('/edit/{id}', [BannerController::class, 'edit']);
@@ -49,7 +43,7 @@ Route::prefix('/banner')->group(function () {
 });
 
 Route::prefix('/product')->group(function () {
-	Route::get('/', [ProductController::class, 'index']);
+	Route::get('/', [ProductController::class, 'index'])->name('product');
 	Route::get('/create', [ProductController::class, 'create']);
 	Route::post('/store', [ProductController::class, 'store']);
 	Route::get('/edit/{id}', [ProductController::class, 'edit']);
@@ -58,4 +52,3 @@ Route::prefix('/product')->group(function () {
 	Route::delete('/delete_img/{img_id}', [ProductController::class, 'delete_img']);
 	Route::get('/info/{id}', [ProductController::class, 'product_info']);
 });
-// Route::prefix('/product')->middleware('default')->group

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('template.template')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/template.css') }} ">
 @endsection
 
-@section('main')
+@section('comment-showcase')
 <div class="comment-showcase-container">
   @foreach ($comments as $cmt)
   <div class="showcase-wrap">
@@ -13,16 +13,16 @@
       <div class="cmt-name col-3 fs-5"> {{ $cmt->name }} </div>
     </div>
     <p class="content"> {{ $cmt->content }} </p>
-    @if (Auth::check())
-        
     <div class="mods">
       <a href="/comment/edit/{{ $cmt->id }}" class="edit fs-8">EDIT</a>
       <a href="/comment/delete/{{ $cmt->id }}" class="delete fs-8">DEL</a>
     </div>
-    @endif
   </div>
   @endforeach
 </div>
+@endsection
+
+@section('comment-board')
 <div class="comment-box">
   <form class="" action="/comment/save" method="POST">
     @csrf 

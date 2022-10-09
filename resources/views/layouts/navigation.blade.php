@@ -15,14 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('"/product"')" :active="request()->is('product*')">
-                        商品管理
+                    <x-nav-link :href="route('product')" :active="request()->is('product*')">
+                        Product 
                     </x-nav-link>
-                    <x-nav-link :href="route('"/banner"')" :active="request()->is('banner*')">
-                        橫幅管理 
+                    <x-nav-link :href="route('banner')" :active="request()->is('banner*')">
+                        Banner 
                     </x-nav-link>
-                    <x-nav-link :href="route('"/comment"')" :active="request()->is('comment*')">
-                        留言管理 
+                    <x-nav-link :href="route('comment_board')" :active="request()->is('comment*')">
+                        Comment 
                     </x-nav-link>
                 </div>
             </div>

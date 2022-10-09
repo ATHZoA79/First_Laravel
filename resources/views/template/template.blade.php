@@ -35,7 +35,7 @@
         <i class="fa-solid fa-circle-user"></i>
         <div id="drop-down">
           @auth
-          <a href="/login">
+          <a href="{{route('logout')}}">
             登出
           </a>
           @else

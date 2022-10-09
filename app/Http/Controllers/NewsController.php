@@ -23,7 +23,10 @@ class NewsController extends Controller
     
     public function comment() {
         $comments = DB::table('comment')->orderByDesc('id')->get();
-        return view('web.comment', compact('comments'));
+
+        $header = '';
+        $slot = '';
+        return view('web.comment', compact('comments', 'header', 'slot'));
         // return view('web.comment', ['comments' => $comments]);
     }
     
