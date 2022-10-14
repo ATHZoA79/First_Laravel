@@ -14,6 +14,9 @@ body {
 }
 
 /* preprocess style */
+a {
+  text-decoration: none;
+}
 a + a {
   margin-left: 8px;
 }

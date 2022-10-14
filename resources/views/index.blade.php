@@ -9,8 +9,8 @@
 @section('index_main')
 <div class="product_box d-flex flex-wrap">
   @foreach ($products as $product)
-  <div class="card">
-    <a href="/product/info/{{$product->id}}">
+  <div class="card pm-2 border-primary border-2 mx-1">
+    <a href="/product/info/{{$product->id}}" class="card-body">
       <img src="{{ $product->img_path }}" alt="">
       <h3>{{ $product->product_name }}</h3>
       {{ $product->product_detail }}
