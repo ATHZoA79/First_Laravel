@@ -25,6 +25,7 @@ class BannerController extends Controller
     public function store(Request $request) {
         // dd($request->all());
         $path = Storage::disk('public')->put('/banner', $request->banner_img);
+        // dd('path = '.$path, Storage::disk('public'), Storage::disk('local'));
         $path = '/storage/public/'.$path;
         Banner::create([
             'img_path' => $path,
@@ -64,6 +65,7 @@ class BannerController extends Controller
     public function destroy($id) {
         // dd($id);
         $banner = Banner::find($id);
+        // dd('path = '.$banner->img_path);
         $target = str_replace('/storage', '', $banner->img_path);
         Storage::disk('local')->delete($target);
         $banner->delete();

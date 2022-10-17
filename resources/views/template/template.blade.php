@@ -27,7 +27,7 @@
     <div id="nav-list" class="d-flex col-10 justify-content-end">
       <a id="banner" class="btn btn-dark d-flex align-items-center " aria-current="page" href="/banner">橫幅管理</a>
       <a id="product" class="btn btn-dark d-flex align-items-center " href="/product">商品管理</a>
-      <a id="cart" class="btn btn-dark d-flex align-items-center " href="#">
+      <a id="cart" class="btn btn-dark d-flex align-items-center " href="{{Route::is('/')}}">
         <i class="fa-solid fa-cart-shopping"></i>
         購物車
       </a>

@@ -63,4 +63,10 @@ Route::middleware('auth')->post('/add_to_cart', [Controller::class, 'add_cart'])
 
 
 // Shopping cart routes 
-Route::middleware('auth')->get('/shopping1', [ShoppingCartController::class, 'step01']);
+Route::middleware('auth')->group(function() {
+	Route::get('/shopping1', [ShoppingCartController::class, 'step01']);
+	// use post so it cannot be entered by just typing uri 
+	Route::post('/shopping2', [ShoppingCartController::class, 'step02']);
+	Route::post('/shopping3', [ShoppingCartController::class, 'step03']);
+	Route::post('/shopping4', [ShoppingCartController::class, 'step04']);
+});

@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function shopping_list() {
         return $this->hasMany(ShoppingCart::class, 'user_id', 'id');
     }
+
+    public function order() {
+        return $this->hasMany(Order::class, 'user_id', 'id');
+    }
 }

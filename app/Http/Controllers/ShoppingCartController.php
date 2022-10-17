@@ -16,7 +16,8 @@ class ShoppingCartController extends Controller
         dd($shopping, $shopping[0]->product->product_name); // Check data 
         return view('shopping.checkout1', compact('shopping'));
     }
-    public function step02() {
+    public function step02(Request $request) {
+        dd($request->all());
         return view('shopping.checkout2');
     }
     public function step03() {

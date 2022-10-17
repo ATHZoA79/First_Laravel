@@ -23,7 +23,7 @@
     <tbody>
       <tr>
         <td>
-          <img src="{{$banner->img_path}}" alt="">
+          <img src="{{$banner->img_path}}" alt="" style="opacity: {{$banner->img_opacity}}">
         </td>
         <td>{{$banner->weight}}</td>
         <td>
@@ -31,6 +31,7 @@
           <button class="btn btn-danger" onclick="document.querySelector('#delete_form{{$banner->id}}').submit();">刪除</button>
           <form id="delete_form{{$banner->id}}" action="/banner/destroy/{{$banner->id}}" method="POST">
             @csrf
+            @method('DELETE')
           </form>
         </td>
       </tr>
