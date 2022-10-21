@@ -13,11 +13,16 @@ class ShoppingCartController extends Controller
         $user = Auth::id();
         $shopping = ShoppingCart::where('user_id', '=', $user)->get();
         // $shopping = ShoppingCart::where('user_id', $user); Short ver. 
-        dd($shopping, $shopping[0]->product->product_name); // Check data 
+        // dd($shopping, $shopping[0]->product->product_name); // Check data 
         return view('shopping.checkout1', compact('shopping'));
     }
     public function step02(Request $request) {
-        dd($request->all());
+        // dd($request->all());
+        $qty = $request->qty;
+        session([
+            'amount' => $qty,
+            // 
+        ]);
         return view('shopping.checkout2');
     }
     public function step03() {

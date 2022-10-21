@@ -6,6 +6,7 @@
 @endsection
 
 @section('table')
+    {{-- {{$product_info->id}} --}}
     <div class="list-detail bg-light p-3 card">
         <div class="product-title">
             <h2 class="col-10">商品名稱</h2>
@@ -58,7 +59,7 @@
     ADD_PRODUCT.onclick = function() {
         var fd = new FormData();
         fd.append('add_qty', parseInt(ADD_NUMBER.value));
-        fd.append('product_id', {!!$product_info->id!!});
+        fd.append('product_id', {!! $product_info->id !!});
         fd.append('_token', '{!!csrf_token()!!}');
 
         fetch('/add_to_cart', {
@@ -68,7 +69,7 @@
         })
         // .then(response => response.json())
         .then(response => {
-            response.json();
+            return response.json();
             // console.log('response : '+response.text());
         })
         .catch(error => {

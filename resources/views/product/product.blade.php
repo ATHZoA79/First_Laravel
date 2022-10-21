@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('dashboard')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/datatable.css') }} ">

@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('comment_board')" :active="request()->is('comment*')">
                         Comment 
                     </x-nav-link>
+                    <x-nav-link :href="route('cart')" :active="request()->is('shopping*')">
+                        Cart 
+                    </x-nav-link>
                 </div>
             </div>
 

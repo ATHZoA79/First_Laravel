@@ -5,7 +5,6 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingCartController;
-use App\Models\ShoppingCart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,8 +62,8 @@ Route::middleware('auth')->post('/add_to_cart', [Controller::class, 'add_cart'])
 
 
 // Shopping cart routes 
-Route::middleware('auth')->group(function() {
-	Route::get('/shopping1', [ShoppingCartController::class, 'step01']);
+Route::prefix('shopping')->middleware('auth')->group(function() {
+	Route::get('/shopping1', [ShoppingCartController::class, 'step01'])->name('cart');
 	// use post so it cannot be entered by just typing uri 
 	Route::post('/shopping2', [ShoppingCartController::class, 'step02']);
 	Route::post('/shopping3', [ShoppingCartController::class, 'step03']);
