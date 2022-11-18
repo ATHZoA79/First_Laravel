@@ -5,7 +5,6 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingCartController;
-use App\Models\ShoppingCart;
 use Illuminate\Support\Facades\Route;
 
 /*

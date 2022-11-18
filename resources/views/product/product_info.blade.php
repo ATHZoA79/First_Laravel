@@ -72,7 +72,7 @@
         })
         // .then(response => response.json())
         .then(response => {
-            response.json();
+            return response.json();
             // console.log('response : '+response.text());
         })
         .catch(error => {

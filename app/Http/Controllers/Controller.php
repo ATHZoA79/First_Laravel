@@ -45,7 +45,7 @@ class Controller extends BaseController
         }
 
         ShoppingCart::create([
-            'product' => $request->product_id,
+            'product_id' => $request->product_id,
             'user_id' => Auth::user()->id,
             'qty' => $request->add_qty,
         ]);

@@ -68,7 +68,12 @@ class ShoppingCartController extends Controller
         return $cart_item;
     }
     public function step02(Request $request) {
-        dd($request->all());
+        // dd($request->all());
+        $qty = $request->qty;
+        session([
+            'amount' => $qty,
+            // 
+        ]);
         return view('shopping.checkout2');
     }
     public function step03() {
