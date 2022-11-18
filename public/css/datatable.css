@@ -72,10 +72,10 @@ main {
   flex-direction: column;
   align-items: center;
 }
-main .list-detail {
+/* main .list-detail {
   width: 80%;
   min-width: 800px;
-}
+} */
 main .list-detail .banner-title {
   margin-bottom: 8px;
   padding: 8px 4px;

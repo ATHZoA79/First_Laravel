@@ -1,10 +1,10 @@
-@extends('template.template')
+@extends('template.dashboard')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/template.css') }} ">
 @endsection
 
-@section('card')
+@section('main')
 <div class="card-container justify-content-center">
   @foreach ($data as $dt)
   <div class="col-3">

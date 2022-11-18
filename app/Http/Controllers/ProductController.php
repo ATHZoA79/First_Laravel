@@ -19,8 +19,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::get();
-        $product_box_1 = Product::orderby('id', 'desc')->take(4)->get();
-        $product_box_2 = Product::orderby('id', 'desc')->skip(4)->take(4)->get();
+        $product_box_1 = Product::take(4)->get();
+        $product_box_2 = Product::skip(4)->take(4)->get();
 
         $main_product = Product::inRandomOrder()->first();
         $second_img = Product_img::get();

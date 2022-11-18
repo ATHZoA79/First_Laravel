@@ -24,15 +24,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+	return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/', [Controller::class, 'index'])->name('index');
 // Route::get('/index', [Controller::class, 'index'])->name('index');
 
-Route::prefix('/comment')->middleware('auth')->group(function() {
+Route::prefix('/comment')->middleware('auth')->group(function () {
 	Route::get('/', [NewsController::class, 'index'])->name('comments');
 	Route::get('/board', [NewsController::class, 'comment'])->name('comment_board');
 	Route::get('/edit/{id}', [NewsController::class, 'edit_comment']);
@@ -59,14 +59,15 @@ Route::prefix('/product')->middleware('auth')->group(function () {
 	Route::get('/info/{id}', [ProductController::class, 'product_info']);
 });
 
-Route::middleware('auth')->post('/add_to_cart', [Controller::class, 'add_cart']); 
+Route::middleware('auth')->post('/add_to_cart', [ShoppingCartController::class, 'addCart']);
 
 
 // Shopping cart routes 
-Route::middleware('auth')->group(function() {
-	Route::get('/shopping1', [ShoppingCartController::class, 'step01']);
+Route::prefix('/shopping')->middleware('auth')->group(function () {
+	Route::get('/step1', [ShoppingCartController::class, 'step01'])->name('cart');
+	Route::post('/update', [ShoppingCartController::class, 'update'])->name('cart.update');
 	// use post so it cannot be entered by just typing uri 
-	Route::post('/shopping2', [ShoppingCartController::class, 'step02']);
-	Route::post('/shopping3', [ShoppingCartController::class, 'step03']);
-	Route::post('/shopping4', [ShoppingCartController::class, 'step04']);
+	Route::post('/step2', [ShoppingCartController::class, 'step02']);
+	Route::post('/step3', [ShoppingCartController::class, 'step03']);
+	Route::post('/step4', [ShoppingCartController::class, 'step04']);
 });
