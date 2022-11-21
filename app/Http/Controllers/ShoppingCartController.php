@@ -67,17 +67,31 @@ class ShoppingCartController extends Controller
         // dd($cart_item);
         return $cart_item;
     }
-    public function step02(Request $request) {
+    public function step02() {
         // dd($request->all());
-        $qty = $request->qty;
-        session([
-            'amount' => $qty,
-            // 
-        ]);
-        return view('shopping.checkout2');
+        // session([
+        //     'amount' => $qty,
+        //     // 
+        // ]);
+        $user = Auth::id();
+        $cart = ShoppingCart::where('user_id', '=', $user)->get();
+        return view('shopping.checkout2', compact('cart'));
     }
-    public function step03() {
-        return view('shopping.checkout3');
+    public function step03(Request $request) {
+        // payment 1:貨到付款, 2:信用卡, 3:網路ATM, 4:超商代碼
+        // shipping_method 1:超商取貨, 2:宅配到府
+        // dd($request->all());
+        $user = Auth::id();
+        $cart = ShoppingCart::where('user_id', '=', $user)->get();
+
+        // 使用session暫存資料
+        session([
+            "payment" => $request->payment,
+            "shipping_method" => $request->shipping_method,
+        ]);
+        return view('shopping.checkout3', compact('cart'));
+        // return redirect('shopping/step3');
+        // return redirect()->route('cart.step03');
     }
     public function step04() {
         return view('shopping.checkout4');
