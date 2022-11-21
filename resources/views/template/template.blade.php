@@ -21,7 +21,7 @@
 
   <nav class="nav nav-pills bg-dark px-3">
     <div class="nav-img col-2">
-      <a href="#">
+      <a href="{{route('dashboard')}}">
         <img src=" {{ asset('img/logo-laravel-icon-512.png') }} " alt="">
       </a>
     </div>

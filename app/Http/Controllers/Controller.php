@@ -14,6 +14,11 @@ use App\Models\Product;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
     public function index() {
         $products = Product::orderBy('id','desc')->get(); 
 
