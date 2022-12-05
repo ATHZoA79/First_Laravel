@@ -48,7 +48,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request->all(), $request->product_img);
 
         $path = FilesController::imgUpload($request->product_img, 'product');
         $product = Product::create([
