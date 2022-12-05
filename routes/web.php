@@ -66,7 +66,7 @@ Route::prefix('/shopping')->middleware('auth')->group(function () {
 	Route::get('/step1', [ShoppingCartController::class, 'step01'])->name('cart');
 	Route::post('/update', [ShoppingCartController::class, 'update'])->name('cart.update');
 	// use post so it cannot be entered by just typing uri 
-	Route::post('/step2', [ShoppingCartController::class, 'step02']);
-	Route::post('/step3', [ShoppingCartController::class, 'step03']);
-	Route::post('/step4', [ShoppingCartController::class, 'step04']);
+	Route::post('/step2', [ShoppingCartController::class, 'step02'])->name('cart.step02');
+	Route::post('/step3', [ShoppingCartController::class, 'step03'])->name('cart.step03');
+	Route::post('/step4', [ShoppingCartController::class, 'step04'])->name('cart.step04');
 });
