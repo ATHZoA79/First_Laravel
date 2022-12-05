@@ -56,17 +56,17 @@
     Copyright &copy; 2022, ZoA Anthony
   </footer>
 
+  @yield('scripts')
   <script>
     const main = document.querySelector('main');
     const footer = document.querySelector('footer');
     const main_style = getComputedStyle(main);
     console.log((main_style.paddingTop.slice(0,-2)), main.scrollHeight, window.innerHeight);
-    if ((main.scrollHeight+parseInt(main_style.paddingTop.slice(0,-2))) < (window.innerHeight - 76)) {
+    if ((main.scrollHeight+parseInt(main_style.paddingTop.slice(0,-2))) < (window.innerHeight - 100)) {
       footer.style = "position: fixed; bottom: 0px;"
     }else {
       footer.style = "";
     }
   </script>
-  @yield('scripts')
 </body>
 </html>

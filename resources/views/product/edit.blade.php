@@ -6,7 +6,7 @@
 @endsection
 
 @section('table')
-<div class="list-detail bg-white py-4 px-5 rounded">
+<div class="list-detail">
   <div class="product-title">
     <h3 class="col-10">商品修改</h3>
   </div>
@@ -46,7 +46,7 @@
         @endforeach --}}
       </div>
       @endforeach
-      <form id="delete_img{{$product->id}}" action="product/delete_img/{{$product->id}}" method="POST" hidden>
+      <form id="delete_img{{$item->id}}" action="product/delete_img/{{$item->id}}" method="POST" hidden>
         @method('DELETE')
         @csrf
         {{-- form to delete sub image --}}
@@ -73,7 +73,7 @@
       <input type="number" name="product_detail" id="product_detail" value="{{$product->product_qty}}">
     </div>
 
-    <div class="button-box py-3">
+    <div class="button-box col-5">
       <button class="submit btn btn-success" type="submit">完成修改</button>
       <button class="cancel btn btn-secondary" type="reset">取消</button>
     </div> 
