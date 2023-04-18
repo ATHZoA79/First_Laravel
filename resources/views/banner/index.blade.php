@@ -6,12 +6,12 @@
 @endsection
 
 @section('main')
-<div class="list-detail">
-  <div class="banner-title text-white">
+<div class="list-detail p-4 bg-neutral-300 rounded-md">
+  <div class="banner-title">
     <h3 class="col-10 font-bold text-lg">Banner</h3>
     <a 
       href="/banner/create" 
-      class="col-2 p-2 mx-2 border-2 border-transparent hover:border-white transition rounded-lg"
+      class="col-2 p-2 mx-2 border-2 border-transparent hover:border-slate-500 transition rounded-lg"
     >
       新增Banner
     </a>
