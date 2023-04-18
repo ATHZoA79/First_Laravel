@@ -1,7 +1,6 @@
 @extends('template.dashboard')
 
 @section('stylesheet')
-
 @endsection
 
 @section('main')
