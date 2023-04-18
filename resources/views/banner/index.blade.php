@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.dashboard')
 
 @section('stylesheet')
 <link rel="stylesheet" href=" {{ asset('css/datatable.css') }} ">
@@ -7,9 +7,14 @@
 
 @section('main')
 <div class="list-detail">
-  <div class="banner-title">
-    <h3 class="col-10">Banner </h3>
-    <a href="/banner/create" class="btn btn-primary col-2">新增Banner </a>
+  <div class="banner-title text-white">
+    <h3 class="col-10 font-bold text-lg">Banner</h3>
+    <a 
+      href="/banner/create" 
+      class="col-2 p-2 mx-2 border-2 border-transparent hover:border-white transition rounded-lg"
+    >
+      新增Banner
+    </a>
   </div>
   <table id="table_1" class="display">
     <thead>

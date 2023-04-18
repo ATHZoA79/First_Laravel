@@ -31,7 +31,8 @@ require __DIR__ . '/auth.php';
 Route::get('/', [Controller::class, 'index'])->name('index');
 // Route::get('/index', [Controller::class, 'index'])->name('index');
 
-Route::prefix('/comment')->middleware('auth')->group(function () {
+// Route::prefix('/comment')->middleware('auth')->group(function () {
+Route::prefix('/comment')->group(function () {
 	Route::get('/', [NewsController::class, 'index'])->name('comments');
 	Route::get('/board', [NewsController::class, 'comment'])->name('comment_board');
 	Route::get('/edit/{id}', [NewsController::class, 'edit_comment']);
@@ -47,7 +48,8 @@ Route::prefix('/banner')->group(function () {
 	Route::delete('/destroy/{id}', [BannerController::class, 'destroy']);
 });
 
-Route::prefix('/product')->middleware('auth')->group(function () {
+// Route::prefix('/product')->middleware('auth')->group(function () {
+Route::prefix('/product')->group(function () {
 	Route::get('/', [ProductController::class, 'index'])->name('product');
 	Route::get('/create', [ProductController::class, 'create']);
 	Route::post('/store', [ProductController::class, 'store']);

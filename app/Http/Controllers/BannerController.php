@@ -20,7 +20,7 @@ class BannerController extends Controller
 
     // banner functions
     public function create() {
-        return view('/banner/create');
+        return view('banner.create');
     }
     public function store(Request $request) {
         // dd($request->all());
